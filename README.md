@@ -1,6 +1,10 @@
 # Pixel's Code Quest
 
-A cat-themed Python learning game. Help Pixel the cat find their way home through the Whisker Woods by solving real Python challenges at the terminal.
+A cat-themed Python learning game. Help Pixel the cat find their way home through the Whisker Woods by solving real Python challenges.
+
+**Play in your browser:** [mariamyi.github.io/dhsi](https://mariamyi.github.io/dhsi/) (no install — runs Python via Pyodide)
+
+**Or run locally in the terminal:** see [Play](#play) below.
 
 ```
          /\_/\
@@ -61,14 +65,22 @@ Your progress is saved at `~/.pixel_quest_progress.json`. From the main menu you
 ## Project layout
 
 ```
-play.py                  # Entry point
+play.py                  # CLI entry point
 pixel_quest/
     __init__.py
-    ui.py                # ASCII cat art, colors, themed prompts
+    ui.py                # Terminal cat art, colors, themed prompts
     engine.py            # Menu, chapter runner, challenge evaluator
     checks.py            # Test helpers (has_var, func_returns, ...)
-    chapters.py          # Story, lessons, and challenges
+    chapters.py          # Story, lessons, and challenges (single source of truth)
+
+# GitHub Pages assets:
+index.html               # Browser game shell
+style.css                # Cat-themed styling
+game.js                  # Pyodide bridge + UI state machine
+.nojekyll                # Tell Pages to skip Jekyll
 ```
+
+The browser version loads the same `chapters.py` and `checks.py` via Pyodide, so adding a new chapter updates both the CLI and the web game at once.
 
 ## Adding your own chapter
 

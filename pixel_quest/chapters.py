@@ -6,7 +6,10 @@ Each challenge is a dict with:
   title, instructions, starter, hints, setup, checks, success
 """
 
-from . import checks
+try:
+    from . import checks
+except ImportError:
+    import checks
 
 
 CHAPTER_1 = {

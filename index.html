@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixel's Code Quest</title>
+<meta name="description" content="A cat-themed Python learning game. Help Pixel the cat find their way home through the Whisker Woods.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="loading" id="loading">
+  <pre class="cat">
+       /\_/\
+      ( -.- )
+       > _ <    zzz...
+  </pre>
+  <p id="loading-text">Waking Pixel up... (loading Python in your browser)</p>
+  <p class="loading-note">First load takes a few seconds while Python boots up.</p>
+</div>
+
+<div class="game" id="game" hidden>
+  <header>
+    <h1>Pixel's Code Quest</h1>
+    <button id="menu-btn" class="secondary">menu</button>
+  </header>
+
+  <main>
+    <section class="cat-panel">
+      <pre class="cat" id="cat-art"></pre>
+      <div class="chapter-label" id="chapter-label"></div>
+    </section>
+
+    <section class="story" id="story-panel" hidden>
+      <h2>~ Story ~</h2>
+      <div id="story-text"></div>
+      <div class="controls">
+        <button id="story-continue">Continue &gt;</button>
+      </div>
+    </section>
+
+    <section class="lesson" id="lesson-panel" hidden>
+      <h2>~ Sage's Lesson ~</h2>
+      <div id="lesson-text"></div>
+      <pre class="code-example" id="lesson-example"></pre>
+      <div class="controls">
+        <button id="lesson-continue">Got it &gt;</button>
+      </div>
+    </section>
+
+    <section class="challenge" id="challenge-panel" hidden>
+      <h2 id="challenge-title"></h2>
+      <div id="challenge-instructions"></div>
+      <div class="editor">
+        <label for="code-input">your Python (Ctrl+Enter to run):</label>
+        <textarea id="code-input" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="10"></textarea>
+      </div>
+      <div class="controls">
+        <button id="run-btn">Run</button>
+        <button id="hint-btn" class="secondary">Hint</button>
+        <button id="skip-btn" class="secondary">Skip</button>
+      </div>
+      <div id="output" class="output"></div>
+    </section>
+
+    <section class="ending" id="ending-panel" hidden>
+      <h2>~ Chapter Complete ~</h2>
+      <div id="ending-text"></div>
+      <div class="controls">
+        <button id="next-chapter">Next chapter &gt;</button>
+      </div>
+    </section>
+
+    <section class="complete" id="complete-panel" hidden>
+      <h2>Pixel is home!</h2>
+      <p>You finished Pixel's Code Quest. Pixel is curled up in a sunbeam, purring.</p>
+      <div class="controls">
+        <button id="play-again">Play again</button>
+      </div>
+    </section>
+
+    <section class="menu" id="menu-panel" hidden>
+      <h2>~ Menu ~</h2>
+      <p>Pick a chapter to jump into:</p>
+      <div class="chapter-list" id="chapter-list"></div>
+      <div class="controls">
+        <button id="close-menu">Back</button>
+        <button id="reset-progress" class="secondary">Reset progress</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built with <a href="https://pyodide.org">Pyodide</a> &middot;
+    source on <a href="https://github.com/mariamyi/dhsi">GitHub</a>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
